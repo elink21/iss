@@ -1,0 +1,38 @@
+body{
+    margin: 0;
+    padding: 0;
+
+}
+#appInterface{
+    
+    display:grid;
+    height: 100vh;
+    width: 100vw;
+
+
+    grid-template-areas: 
+    ". title ."
+    "map map map"
+    "info info info";
+
+
+    justify-items: center;
+
+
+    #title{
+        grid-area: title;
+    }
+
+    #mapDiv{
+        grid-area: map;
+    }
+
+    #infoDiv{
+        grid-area: info;
+        display: grid;
+        width: 100vw;
+        text-align: center;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+}
