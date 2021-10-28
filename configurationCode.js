@@ -1,5 +1,5 @@
 //Setting up am4map
-let map = am4core.create("chartDiv", am4maps.MapChart);
+let map = am4core.create("mapDiv", am4maps.MapChart);
 map.geodata = am4geodata_worldLow;
 
 am4core.useTheme(am4themes_animated);

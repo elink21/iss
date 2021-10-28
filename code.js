@@ -1,3 +1,4 @@
+
 //Setting up am4map
 let map = am4core.create("mapDiv", am4maps.MapChart);
 map.geodata = am4geodata_worldLow;
@@ -35,4 +36,49 @@ circle.radius = 8;
 circle.propertyFields.fill = "color";
 circle.nonScaling = false;
 
-//End of configuration code
+
+const getISSData = async () =>{
+    return ( await fetch("https://api.wheretheiss.at/v1/satellites/25544")).json();
+}
+
+setInterval(
+    async function(){
+        let issData= {}
+
+        try{
+            issData=await getISSData();
+        } catch (error){
+            console.log(error);
+        }
+
+
+        console.log(issData.velocity);
+
+        let visibilityField = document.getElementById("visibilityField");
+
+        let velocityField= document.getElementById("velocityField");
+
+        let positionField=  document.getElementById("positionField");
+
+
+        visibilityField.innerHTML=  issData.visibility;
+
+        velocityField.innerHTML= issData.velocity;
+
+        positionField.innerHTML= `${issData.latitude}, ${issData.longitude}`;
+
+        imageSeries.data=[{
+            title:`🛰️(${issData.latitude.toFixed(3)}, ${issData.longitude.toFixed(3)})` ,
+            latitude:issData.latitude ,
+            longitude:issData.longitude ,
+            color: "#ff650d",
+        }];
+
+
+
+    }
+    ,2000);
+
+
+
+

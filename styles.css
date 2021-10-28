@@ -8,33 +8,31 @@ body {
   display: grid;
   height: 100vh;
   width: 100vw;
-      grid-template-areas: ". title ." "map map map" "info info info";
-  justify-items: center;
+      grid-template-areas: ".    title .   " "map  map   map" "info info info";
+  text-align: center;
 }
 
-#appInterface #title {
+#title {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: title;
 }
 
-#appInterface #mapDiv {
+#mapDiv {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: map;
 }
 
-#appInterface #infoDiv {
+#infoDiv {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
   -ms-grid-row: 3;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: info;
-  display: -ms-grid;
-  display: grid;
-  width: 100vw;
-  text-align: center;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
 }
 /*# sourceMappingURL=styles.css.map */
